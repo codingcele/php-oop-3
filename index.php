@@ -188,11 +188,11 @@ class Stipendio {
 
     public function getStipendioAnnuale() {
 
-        if ($this -> getTredicesima() == "si" && $this -> getQuattordicesima() == "si") {
+        if ($this -> getTredicesima() && $this -> getQuattordicesima()) {
             return $this -> getMensile() * 14;
         }
         else {
-            if ($this -> getTredicesima() == "no") {
+            if (!($this -> getTredicesima())) {
                 return $this -> getMensile() * 12;
             }
             else {
@@ -254,7 +254,7 @@ class Capo extends Persona {
     }
 }
 
-$stipendio1 = new Stipendio(1300, "si", "no");
+$stipendio1 = new Stipendio(1300, true, true);
 
 /* echo $stipendio1 -> getHtml(); */
 
