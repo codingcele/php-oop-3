@@ -122,12 +122,18 @@ class Impiegato extends Persona {
 
         $this -> dataAssunzione = $dataAssunzione;
     }
+
+    public function getStipendioAnnuale() {
+
+        return $this -> getStipendio() -> getStipendioAnnuale();
+    }
     
 
     public function getHtml() {
 
         return parent :: getHtml() 
-            . "<br>" . $this -> getStipendio() -> getHtml() 
+            . "<br>" . $this -> getStipendio() -> getMensile()
+            . "<br>" . $this -> getStipendioAnnuale() 
             . "<br>" . $this -> getDataAssunzione()
             . "<br>";
     }
